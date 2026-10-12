@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flores, carta y un pollo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      color: #333;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .screen {
+      display: none;
+      animation: fadeIn 0.8s ease;
+      width: 90%;
+      max-width: 600px;
+    }
+    .active {
+      display: block;
+    }
+    .main-img {
+      width: 280px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .main-img:hover {
+      transform: scale(1.05);
+    }
+    .btn {
+      margin-top: 15px;
+      padding: 10px 25px;
+      font-size: 1em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #ff4f81;
+      color: white;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background-color: #ff2a66;
+    }
+    .card {
+      background: repeating-linear-gradient(
+        white,
+        white 28px,
+        #e3e3e3 29px
+      );
+      padding: 40px 60px;
+      border: 2px solid #e5e5e5;
+      max-width: 900px;
+      text-align: left;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .card p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.3em;
+      line-height: 1.6;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+  </style>
+</head>
+<body>
+  <div class="screen active" id="screen1">
+    <h2>Mi Alli, este detalle es para ti. Con mucho cariño de tu rarito</h2>
+    <img src="https://url-shortener.me/4G26" class="main-img" onclick="nextScreen(2)">
+  </div>
+  <div class="screen" id="screen2">
+    <h2>Son flores y una carta</h2>
+    <img src="https://url-shortener.me/4G28" class="main-img">
+    <br>
+    <button class="btn" onclick="nextScreen(3)">💌 Leer carta</button>
+  </div>
+  <div class="screen" id="screen3">
+    <div class="card">
+      <h3>Querida Alli,</h3>
+      <p>
+        Quiero que sepas lo mucho que te amo y lo feliz que me haces con tan solo tenerte en mi vida.
+        Eres esa personita que alegra mis días, que me saca sonrisas sin intentarlo y que hace que todo
+        sea más bonito. ❤️
+      </p>
+      <p>
+        Prometo darte mi amor sincero, cuidarte y estar a tu lado en los momentos buenos y malos.
+        Quiero seguir creando recuerdos contigo y demostrarte cada día lo especial que eres para mí.
+      </p>
+      <p>
+        Te valoro, te admiro y te tengo un cariño enorme.
+      </p>
+      <p>
+        Te amo muchísimo, mi niña hermosa. Gracias por existir y por ser parte de mi vida. 💗
+      </p>    
+      <p>Con mucho afecto,<br>Tu niño de ojitos bonitos 💌</p>
+    </div>
+    <br>
+    <button class="btn" onclick="nextScreen(1)">🔙 Regresar</button>
+  </div>
+  <script>
+    function nextScreen(num) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('screen' + num).classList.add('active');
+    }
+  </script>
+</body>
+</html>
